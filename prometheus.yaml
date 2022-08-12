@@ -1348,6 +1348,10 @@ spec:
       containers:
       - name: "grafana"
         image: "grafana/grafana"
+        securityContext:
+          capabilities:
+            drop:
+              - all
         command: []
         args: []
         terminationMessagePath: "/dev/termination-log"
