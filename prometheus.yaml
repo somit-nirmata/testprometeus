@@ -1325,6 +1325,10 @@ spec:
         nirmata.io/component: "grafana"
         nirmata.io/application.addon.type: "Monitoring"
     spec:
+      securityContext:
+        capabilities:
+          drop:
+            - all
       restartPolicy: "Always"
       terminationGracePeriodSeconds: 30
       nodeSelector: {}
