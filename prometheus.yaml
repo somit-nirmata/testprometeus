@@ -1302,6 +1302,10 @@ metadata:
     nirmata.io/component: "grafana"
     nirmata.io/application.addon.type: "Monitoring"
 spec:
+  securityContext:
+    capabilities:
+      drop:
+      - all
   progressDeadlineSeconds: 600
   replicas: 1
   revisionHistoryLimit: 5
@@ -1325,10 +1329,6 @@ spec:
         nirmata.io/component: "grafana"
         nirmata.io/application.addon.type: "Monitoring"
     spec:
-      securityContext:
-        capabilities:
-          drop:
-            - all
       restartPolicy: "Always"
       terminationGracePeriodSeconds: 30
       nodeSelector: {}
@@ -1352,10 +1352,6 @@ spec:
       containers:
       - name: "grafana"
         image: "grafana/grafana"
-        securityContext:
-          capabilities:
-            drop:
-              - all
         command: []
         args: []
         terminationMessagePath: "/dev/termination-log"
