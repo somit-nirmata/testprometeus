@@ -132,8 +132,11 @@ spec:
         - name: prometheus
           image: "quay.io/coreos/prometheus-operator:v0.38.1"
           capabilities:
+            capabilities:
             drop:
               - all
+            add:
+              - NET_BIND_SERVICE
           imagePullPolicy: "IfNotPresent"
           args:
             - --manage-crds=true
@@ -288,8 +291,11 @@ spec:
       - name: "node-exporter"
         image: "quay.io/prometheus/node-exporter:v0.17.0"
         capabilities:
-            drop:
-              - all
+          capabilities:
+          drop:
+            - all
+          add:
+            - NET_BIND_SERVICE
         command: []
         args:
         - "--web.listen-address=127.0.0.1:9101"
@@ -347,9 +353,11 @@ spec:
         runAsNonRoot: true
         supplementalGroups: []
         capabilities:
-          drop:
-          - all
-      tolerations:
+          capabilities:
+            drop:
+              - all
+            add:
+              - NET_BIND_SERVICE
       - key: "node-role.kubernetes.io/master"
         effect: "NoSchedule"
   updateStrategy:
@@ -420,6 +428,8 @@ spec:
           capabilities:
             drop:
               - all
+            add:
+              - NET_BIND_SERVICE
         command: []
         args: []
         ports:
@@ -444,6 +454,8 @@ spec:
           capabilities:
             drop:
               - all
+            add:
+              - NET_BIND_SERVICE
         command:
         - "/pod_nanny"
         - "--container=kube-state-metrics"
@@ -1370,7 +1382,9 @@ spec:
         securityContext:
           capabilities:
             drop:
-            - all
+              - all
+            add:
+              - NET_BIND_SERVICE
         command: []
         args: []
         terminationMessagePath: "/dev/termination-log"
