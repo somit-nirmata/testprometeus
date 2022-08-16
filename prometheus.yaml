@@ -1,5 +1,7 @@
+
 ---
 # Source: prometheus-operator/templates/prometheus-operator/clusterrole.yaml
+# Added test data
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
