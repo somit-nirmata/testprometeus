@@ -1,6 +1,7 @@
 
 ---
 # Source: prometheus-operator/templates/prometheus-operator/clusterrole.yaml
+# Added test data
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -130,6 +131,9 @@ spec:
       containers:
         - name: prometheus
           image: "quay.io/coreos/prometheus-operator:v0.38.1"
+          capabilities:
+            drop:
+              - all
           imagePullPolicy: "IfNotPresent"
           args:
             - --manage-crds=true
@@ -283,6 +287,9 @@ spec:
       containers:
       - name: "node-exporter"
         image: "quay.io/prometheus/node-exporter:v0.17.0"
+        capabilities:
+            drop:
+              - all
         command: []
         args:
         - "--web.listen-address=127.0.0.1:9101"
@@ -409,6 +416,10 @@ spec:
       containers:
       - name: "kube-state-metrics"
         image: "quay.io/coreos/kube-state-metrics:v1.5.0"
+        securityContext:
+          capabilities:
+            drop:
+              - all
         command: []
         args: []
         ports:
@@ -429,6 +440,10 @@ spec:
             port: 8080
       - name: "addon-resizer"
         image: "k8s.gcr.io/addon-resizer:1.8.3"
+        securityContext:
+          capabilities:
+            drop:
+              - all
         command:
         - "/pod_nanny"
         - "--container=kube-state-metrics"
@@ -1306,10 +1321,6 @@ metadata:
     nirmata.io/component: "grafana"
     nirmata.io/application.addon.type: "Monitoring"
 spec:
-  securityContext:
-    capabilities:
-      drop:
-      - all
   progressDeadlineSeconds: 600
   replicas: 1
   revisionHistoryLimit: 5
@@ -1356,6 +1367,10 @@ spec:
       containers:
       - name: "grafana"
         image: "grafana/grafana"
+        securityContext:
+          capabilities:
+            drop:
+            - all
         command: []
         args: []
         terminationMessagePath: "/dev/termination-log"
