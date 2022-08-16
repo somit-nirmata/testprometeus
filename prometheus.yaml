@@ -340,6 +340,9 @@ spec:
         runAsUser: 65534
         runAsNonRoot: true
         supplementalGroups: []
+        capabilities:
+          drop:
+          - all
       tolerations:
       - key: "node-role.kubernetes.io/master"
         effect: "NoSchedule"
