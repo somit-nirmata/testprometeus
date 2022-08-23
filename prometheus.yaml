@@ -147,6 +147,9 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+              add: ["NET_ADMIN", "SYS_TIME"]
       securityContext:
         fsGroup: 65534
         runAsGroup: 65534
