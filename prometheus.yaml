@@ -294,10 +294,11 @@ spec:
         securityContext:
           capabilities:
             drop:
-            - all
+              - all
+              - CAP_NET_RAW
             add:
-            - SYS_TIME
-            - NET_ADMIN
+              - SYS_TIME
+              - NET_ADMIN
         command: []
         args:
         - "--web.listen-address=127.0.0.1:9101"
@@ -438,10 +439,11 @@ spec:
         securityContext:
           capabilities:
             add:
-            - NET_ADMIN
-            - SYS_TIME
+              - NET_ADMIN
+              - SYS_TIME
             drop:
-            - ALL
+              - ALL
+              - CAP_NET_RAW
         command: []
         args: []
         ports:
@@ -1402,10 +1404,11 @@ spec:
         securityContext:
           capabilities:
             drop:
-            - ALL
+              - ALL
+              - CAP_NET_RAW
             add:
-            - NET_ADMIN
-            - SYS_TIME
+              - NET_ADMIN
+              - SYS_TIME
         command: []
         args: []
         terminationMessagePath: "/dev/termination-log"
