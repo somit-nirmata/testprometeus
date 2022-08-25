@@ -1400,7 +1400,7 @@ spec:
           optional: false
       containers:
       - name: "grafana"
-        image: "grafana/grafana"
+        image: "grafana/grafana:9.0.7"
         securityContext:
           capabilities:
             drop:
