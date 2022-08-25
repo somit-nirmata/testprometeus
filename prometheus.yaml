@@ -154,7 +154,7 @@ spec:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
             capabilities:
-              drop: ["ALL"]
+              drop: ["ALL", "CAP_NET_RAW"]
               add: ["NET_ADMIN", "SYS_TIME"]
       securityContext:
         fsGroup: 65534
