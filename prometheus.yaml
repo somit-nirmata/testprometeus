@@ -410,6 +410,13 @@ spec:
       containers:
       - name: "kube-state-metrics"
         image: "quay.io/coreos/kube-state-metrics:v1.5.0"
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+            - SYS_TIME
+            drop:
+            - ALL
         command: []
         args: []
         ports:
@@ -430,6 +437,13 @@ spec:
             port: 8080
       - name: "addon-resizer"
         image: "k8s.gcr.io/addon-resizer:1.8.3"
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+            - SYS_TIME
+            drop:
+            - ALL
         command:
         - "/pod_nanny"
         - "--container=kube-state-metrics"
