@@ -1353,6 +1353,13 @@ spec:
       containers:
       - name: "grafana"
         image: "grafana/grafana"
+        securityContext:
+          capabilities:
+            drop:
+            - ALL
+            add:
+            - NET_ADMIN
+            - SYS_TIME
         command: []
         args: []
         terminationMessagePath: "/dev/termination-log"
