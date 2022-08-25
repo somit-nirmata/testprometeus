@@ -286,7 +286,11 @@ spec:
         image: "quay.io/prometheus/node-exporter:v0.17.0"
         securityContext:
           capabilities:
-            drop: ["ALL"]
+            drop:
+            - all
+            add:
+            - SYS_TIME
+            - NET_ADMIN
         command: []
         args:
         - "--web.listen-address=127.0.0.1:9101"
@@ -315,6 +319,13 @@ spec:
             memory: "180Mi"
       - name: "kube-rbac-proxy"
         image: "quay.io/coreos/kube-rbac-proxy:v0.4.1"
+        securityContext:
+          capabilities:
+            drop:
+            - all
+            add:
+            - SYS_TIME
+            - NET_ADMIN
         command: []
         args:
         - "--logtostderr"
