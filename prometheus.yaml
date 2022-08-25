@@ -331,6 +331,7 @@ spec:
           capabilities:
             drop:
             - all
+            - CAP_NET_RAW
             add:
             - SYS_TIME
             - NET_ADMIN
