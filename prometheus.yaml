@@ -128,6 +128,13 @@ spec:
       containers:
         - name: prometheus
           image: "quay.io/coreos/prometheus-operator:v0.38.1"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
           imagePullPolicy: "IfNotPresent"
           args:
             - --manage-crds=true
@@ -421,6 +428,13 @@ spec:
       containers:
       - name: "kube-state-metrics"
         image: "quay.io/coreos/kube-state-metrics:v1.5.0"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
         securityContext:
           capabilities:
             add:
@@ -448,6 +462,13 @@ spec:
             port: 8080
       - name: "addon-resizer"
         image: "k8s.gcr.io/addon-resizer:1.8.3"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
         securityContext:
           capabilities:
             add:
