@@ -320,28 +320,14 @@ spec:
       containers:
       - name: "node-exporter"
         image: "quay.io/prometheus/node-exporter:v0.17.0"
-        livenessProbe:
-          exec:
-            command:
-            - cd
-            - /tmp
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        #readinessProbe:
-          #exec:
-            #command:
-            #- cd
-            #- /tmp
-          #initialDelaySeconds: 5
-          #periodSeconds: 5
-        #securityContext:
-          #capabilities:
-            #drop:
-              #- all
-              #- CAP_NET_RAW
-            #add:
-              #- SYS_TIME
-              #- NET_ADMIN
+        securityContext:
+          capabilities:
+            drop:
+              - all
+              - CAP_NET_RAW
+            add:
+              - SYS_TIME
+              - NET_ADMIN
         command: []
         args:
         - "--web.listen-address=127.0.0.1:9101"
@@ -370,20 +356,6 @@ spec:
             memory: "180Mi"
       - name: "kube-rbac-proxy"
         image: "quay.io/coreos/kube-rbac-proxy:v0.4.1"
-        livenessProbe:
-          exec:
-            command:
-            - cd
-            - /tmp
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        readinessProbe:
-          exec:
-            command:
-            - cd
-            - /tmp
-          initialDelaySeconds: 5
-          periodSeconds: 5
         securityContext:
           capabilities:
             drop:
