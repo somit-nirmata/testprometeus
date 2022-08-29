@@ -310,6 +310,7 @@ spec:
           capabilities:
             drop:
               - all
+              - CAP_NET_RAW
             add:
               - SYS_TIME
               - NET_ADMIN
@@ -343,6 +344,8 @@ spec:
         image: "quay.io/coreos/kube-rbac-proxy:v0.4.1"
         securityContext:
           capabilities:
+            drop:
+            - CAP_NET_RAW
             add:
             - SYS_TIME
             - NET_ADMIN
