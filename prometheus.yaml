@@ -1420,9 +1420,6 @@ spec:
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
-            drop:
-              - ALL
-              - CAP_NET_RAW
             add:
               - NET_ADMIN
               - SYS_TIME
