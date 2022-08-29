@@ -327,21 +327,21 @@ spec:
             - /tmp
           initialDelaySeconds: 5
           periodSeconds: 5
-        readinessProbe:
-          exec:
-            command:
-            - cd
-            - /tmp
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        securityContext:
-          capabilities:
-            drop:
-              - all
-              - CAP_NET_RAW
-            add:
-              - SYS_TIME
-              - NET_ADMIN
+        #readinessProbe:
+          #exec:
+            #command:
+            #- cd
+            #- /tmp
+          #initialDelaySeconds: 5
+          #periodSeconds: 5
+        #securityContext:
+          #capabilities:
+            #drop:
+              #- all
+              #- CAP_NET_RAW
+            #add:
+              #- SYS_TIME
+              #- NET_ADMIN
         command: []
         args:
         - "--web.listen-address=127.0.0.1:9101"
