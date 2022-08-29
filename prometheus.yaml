@@ -1397,7 +1397,6 @@ spec:
     spec:
       securityContext:
         fsGroup: 472
-        runAsGroup: 472
         runAsNonRoot: true
         runAsUser: 65534
       restartPolicy: "Always"
