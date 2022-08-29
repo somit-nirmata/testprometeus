@@ -128,6 +128,19 @@ spec:
       containers:
         - name: prometheus
           image: "quay.io/coreos/prometheus-operator:v0.38.1"
+          livenessProbe:
+            exec:
+              command:
+              - cat
+              - /dev/termination-log
+            initialDelaySeconds: 5
+          readinessProbe:
+            exec:
+              command:
+              - cat
+              - /dev/termination-log
+            initialDelaySeconds: 5
+      periodSeconds: 5
           resources:
             requests:
               memory: "128Mi"
