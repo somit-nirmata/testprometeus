@@ -491,6 +491,7 @@ spec:
             - SYS_TIME
             drop:
             - ALL
+            - CAP_NET_RAW 
         command:
         - "/pod_nanny"
         - "--container=kube-state-metrics"
@@ -1435,6 +1436,8 @@ spec:
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
+            drop:
+              - CAP_NET_RAW
             add:
               - NET_ADMIN
               - SYS_TIME
