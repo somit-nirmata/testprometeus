@@ -156,6 +156,8 @@ spec:
             capabilities:
               drop: ["ALL", "CAP_NET_RAW"]
               add:
+              - SYS_TIME
+              - NET_ADMIN
               - AUDIT_WRITE
               - CHOWN
               - DAC_OVERRIDE
