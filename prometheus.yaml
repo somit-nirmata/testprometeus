@@ -134,13 +134,14 @@ spec:
               - cat
               - /dev/termination-log
             initialDelaySeconds: 5
+            periodSeconds: 5
           readinessProbe:
             exec:
               command:
               - cat
               - /dev/termination-log
             initialDelaySeconds: 5
-      periodSeconds: 5
+            periodSeconds: 5
           resources:
             requests:
               memory: "128Mi"
