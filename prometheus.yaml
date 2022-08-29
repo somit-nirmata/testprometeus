@@ -1395,6 +1395,11 @@ spec:
         nirmata.io/component: "grafana"
         nirmata.io/application.addon.type: "Monitoring"
     spec:
+      securityContext:
+        fsGroup: 472
+        runAsGroup: 472
+        runAsNonRoot: true
+        runAsUser: 65534
       restartPolicy: "Always"
       terminationGracePeriodSeconds: 30
       nodeSelector: {}
