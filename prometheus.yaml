@@ -1338,7 +1338,7 @@ spec:
     interval: "30s"
 
 ---
-kind: "Deployment"
+kind: Deployment
 apiVersion: "apps/v1"
 metadata:
   uid: "11de7f33-5fd5-11e9-97b9-3e651763bfbe"
@@ -1426,6 +1426,19 @@ spec:
             add:
               - NET_ADMIN
               - SYS_TIME
+              - AUDIT_WRITE
+              - CHOWN
+              - DAC_OVERRIDE
+              - FOWNER
+              - FSETID
+              - KILL
+              - MKNOD
+              - NET_BIND_SERVICE
+              - SETFCAP
+              - SETGID
+              - SETPCAP
+              - SETUID
+              - SYS_CHROOT
         command: []
         args: []
         terminationMessagePath: "/dev/termination-log"
