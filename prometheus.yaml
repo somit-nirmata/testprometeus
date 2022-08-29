@@ -1397,7 +1397,6 @@ spec:
     spec:
       securityContext:
         fsGroup: 472
-        runAsNonRoot: true
         runAsUser: 65534
       restartPolicy: "Always"
       terminationGracePeriodSeconds: 30
@@ -1442,6 +1441,7 @@ spec:
           timeoutSeconds: 1
         securityContext:
           allowPrivilegeEscalation: false
+          runAsNonRoot: true
           capabilities:
             drop:
               - CAP_NET_RAW
