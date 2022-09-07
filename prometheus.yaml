@@ -374,13 +374,15 @@ spec:
             command:
               - cat
               - /dev/termination-log
-          initialDelaySeconds: 5
-          periodSeconds: 5
+          initialDelaySeconds: 15
+          periodSeconds: 10
         readinessProbe:
           exec:
             command:
               - cat
               - /dev/termination-log
+          initialDelaySeconds: 15
+          periodSeconds: 10
         securityContext:
           capabilities:
             drop:
