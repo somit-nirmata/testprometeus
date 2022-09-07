@@ -519,6 +519,18 @@ spec:
             port: 8080
       - name: "addon-resizer"
         image: "k8s.gcr.io/addon-resizer:1.8.3"
+        livenessProbe:
+          exec:
+            command:
+              - cat
+              - /dev/termination-log
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:
+          exec:
+            command:
+              - cat
+              - /dev/termination-log
         resources:
           requests:
             memory: "64Mi"
