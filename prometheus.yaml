@@ -1495,6 +1495,7 @@ spec:
           runAsNonRoot: true
           capabilities:
             drop:
+              - ALL
               - CAP_NET_RAW
             add:
               - NET_ADMIN
