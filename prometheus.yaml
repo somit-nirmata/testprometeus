@@ -337,7 +337,6 @@ spec:
         securityContext:
           capabilities:
             drop:
-              - ALL
               - CAP_NET_RAW
             add:
               - SYS_TIME
@@ -1472,7 +1471,6 @@ spec:
           runAsNonRoot: true
           capabilities:
             drop:
-              - ALL
               - CAP_NET_RAW
             add:
               - NET_ADMIN
