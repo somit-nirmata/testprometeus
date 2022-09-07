@@ -337,6 +337,7 @@ spec:
         securityContext:
           capabilities:
             drop:
+              - all
               - CAP_NET_RAW
             add:
               - SYS_TIME
