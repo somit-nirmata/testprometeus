@@ -369,6 +369,18 @@ spec:
             memory: "180Mi"
       - name: "kube-rbac-proxy"
         image: "quay.io/coreos/kube-rbac-proxy:v0.4.1"
+        livenessProbe:
+          exec:
+            command:
+              - cat
+              - /dev/termination-log
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:
+          exec:
+            command:
+              - cat
+              - /dev/termination-log
         securityContext:
           capabilities:
             drop:
